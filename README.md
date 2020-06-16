@@ -1,0 +1,1 @@
+# manybook_admin
