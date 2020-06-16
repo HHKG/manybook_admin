@@ -1,0 +1,7 @@
+// .babelrc or babel-loader option
+//安装好antd和babel-plugin-import后，创建.babelrc文件并输入下面的代码
+{
+    "plugins": [
+      ["import", { "libraryName": "antd", "libraryDirectory": "es", "style": "css" }] // `style: true` 会加载 less 文件
+    ]
+  }
