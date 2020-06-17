@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Form, Input, Button, Checkbox, Alert } from 'antd';
 import styles from '../../css/login.css';
+import apiAxios from '../../utils/request';
 //引入动画板块
 
 const tailLayout = {
@@ -16,7 +17,9 @@ class Login extends Component {
     }
     onFinish = (values) => {
         if (values.username !== "" && values.password !== "") {
-            console.log("登录成功！")
+            apiAxios('POST','/RegisterUser',values).then(res=>{
+                console.log(res,'请求成功');
+            })
         }
     }
     onFinishFailed = () => {
