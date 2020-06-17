@@ -1,4 +1,5 @@
 import React,{Component} from 'react';
+import AddCarousel from '../AddCarousel';
 
 class Home extends Component{
     constructor(props){
@@ -6,7 +7,9 @@ class Home extends Component{
         this.state={}
     }
     render(){
-        return(<div>Home</div>);
+        return(<div className="globalCss">Home
+        <AddCarousel></AddCarousel>
+        </div>);
     }
 }
 
