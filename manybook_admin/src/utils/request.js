@@ -1,11 +1,23 @@
 import axios from 'axios';
 import qs from 'qs';
-
 import {baseUrl} from './config';
+import {notification } from 'antd';
+
+const openNotification = () => {
+  notification.open({
+    message: 'Notification Title',
+    description:
+      'This is the content of the notification. This is the content of the notification. This is the content of the notification.',
+    onClick: () => {
+      console.log('Notification Clicked!');
+    },
+  });
+};
 
 
 // 添加请求拦截器，在发送请求之前做点什么
 axios.interceptors.request.use(function(config){
+  // openNotification();
     // 显示loading
     return config
 },
@@ -40,11 +52,11 @@ function errorState(res){
 
 // 封装数据返回成功提示函数
 function successState(res){
-    console.log(res,'请求成功了');
-// 隐藏loading
+  // 隐藏loading
   // 统一判断后端返回的错误码(错误码与后台协商而定)
-  if (res === 'success') {
-    alert('success')
+  if (res.data.code === '0000') {
+
+
     return res
   }
 }
@@ -52,6 +64,7 @@ function successState(res){
 // 封装axios
 
 function apiAxios (method, url, params) {
+
     let httpDefault = {
       method: method,
       baseURL: baseUrl,
